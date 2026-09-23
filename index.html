@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beyond Science</title>
+<meta name="description" content="Beyond Science: the art behind the Persian carpet, its history, its patterns, and the craft that lets it last for generations.">
+<meta name="author" content="Faezeh Maghsoodifar">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%238f2621'/%3E%3Cpath d='M16 5l8 11-8 11-8-11z' fill='%231d3557'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%23c8952c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Figtree:wght@400;500;600&family=Vazirmatn:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6efe3;
+  --surface: #fffaf1;
+  --ink: #2a1a14;
+  --muted: #6b5446;
+  --line: #e3d5bd;
+  --accent: #9e2b25;
+  --accent-2: #1f3a5f;
+  --gold: #b8831f;
+  --tile: #efe3c8;
+  --shadow: 0 1px 2px rgba(60, 30, 10, .06), 0 8px 24px rgba(60, 30, 10, .06);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17110e;
+    --surface: #211813;
+    --ink: #f1e6d6;
+    --muted: #b8a491;
+    --line: #3b2d24;
+    --accent: #d65a4e;
+    --accent-2: #7ea2d6;
+    --gold: #d9ad4a;
+    --tile: #2b201a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17110e;
+  --surface: #211813;
+  --ink: #f1e6d6;
+  --muted: #b8a491;
+  --line: #3b2d24;
+  --accent: #d65a4e;
+  --accent-2: #7ea2d6;
+  --gold: #d9ad4a;
+  --tile: #2b201a;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+  color-scheme: dark;
+}
+
+/* Fixed carpet palette: a carpet keeps its colours in either theme */
+.c-red { fill: #8f2621; } .c-ind { fill: #1d3557; } .c-ivo { fill: #efe3c8; }
+.c-gold { fill: #c8952c; } .c-dark { fill: #2b1b17; } .c-grn { fill: #56703f; }
+.c-pink { fill: #c56b5c; } .c-sky { fill: #5f86a8; }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 17px/1.7 "Figtree", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; line-height: 1.1; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(2.1rem, 5vw, 3rem); }
+h3 { font-size: 1.5rem; }
+p { margin: 0 0 1em; text-wrap: pretty; }
+a { color: var(--accent); text-underline-offset: 3px; }
+.fa { font-family: "Vazirmatn", sans-serif; font-weight: 400; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+@media (max-width: 600px) { .wrap { padding: 0 16px; } body { font-size: 16px; } }
+
+/* Nav */
+.nav {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav .wrap { display: flex; align-items: center; gap: 24px; height: 56px; }
+.brand { font-family: "Cormorant Garamond", serif; font-weight: 700; font-size: 1.3rem; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.nav ul { display: flex; gap: 20px; list-style: none; margin: 0 0 0 auto; padding: 0; overflow-x: auto; scrollbar-width: none; }
+.nav ul::-webkit-scrollbar { display: none; }
+.nav a.link { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500; white-space: nowrap; }
+.nav a.link:hover { color: var(--ink); }
+.theme-btn { background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 999px; width: 34px; height: 34px; flex: none; cursor: pointer; display: grid; place-items: center; }
+.theme-btn:hover { color: var(--ink); }
+@media (max-width: 760px) { .nav ul { display: none; } .theme-btn { margin-left: auto; } }
+
+/* Hero */
+.hero { padding: 72px 0 88px; }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
+.eyebrow { font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 18px; }
+.hero h1 { font-size: clamp(3rem, 8vw, 5.4rem); letter-spacing: -.01em; }
+.hero h1 .fa { display: block; font-size: .5em; color: var(--gold); margin-top: 10px; }
+.lede { font-size: 1.2rem; color: var(--muted); max-width: 34em; margin-top: 24px; }
+.hero-rug { justify-self: center; width: min(100%, 380px); filter: drop-shadow(0 18px 30px rgba(40, 15, 5, .25)); }
+.hero-rug svg { display: block; width: 100%; height: auto; }
+.weave { animation: weave 3.2s cubic-bezier(.4, .1, .3, 1) both .2s; }
+@keyframes weave { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
+@media (prefers-reduced-motion: reduce) { .weave { animation: none; } }
+.hero-cap { font-size: .8rem; color: var(--muted); text-align: center; margin-top: 14px; }
+@media (max-width: 860px) {
+  .hero { padding: 40px 0 56px; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+  .hero-rug { width: min(78%, 320px); }
+}
+
+/* Sections */
+section { padding: 88px 0; border-top: 1px solid var(--line); }
+@media (max-width: 600px) { section { padding: 60px 0; } }
+.sec-head { max-width: 680px; margin-bottom: 48px; }
+.sec-head p { color: var(--muted); font-size: 1.08rem; margin-top: 16px; }
+.num { font-family: "Cormorant Garamond", serif; font-style: italic; color: var(--gold); font-size: 1.1rem; display: block; margin-bottom: 8px; }
+
+.quote {
+  font-family: "Cormorant Garamond", serif; font-size: clamp(1.6rem, 3.6vw, 2.3rem); font-style: italic; line-height: 1.3;
+  max-width: 820px; margin: 0 auto; text-align: center; color: var(--ink);
+}
+.quote small { display: block; font-family: "Figtree", sans-serif; font-style: normal; font-size: .9rem; color: var(--muted); margin-top: 18px; }
+
+/* Timeline */
+.timeline { position: relative; margin: 0; padding: 0; list-style: none; }
+.timeline::before { content: ""; position: absolute; left: 150px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+.timeline li { display: grid; grid-template-columns: 150px 1fr; gap: 40px; padding: 0 0 40px; position: relative; }
+.timeline li::before { content: ""; position: absolute; left: 144px; top: 9px; width: 14px; height: 14px; transform: rotate(45deg); background: var(--accent); border: 3px solid var(--bg); }
+.timeline .when { font-family: "Cormorant Garamond", serif; font-weight: 700; font-size: 1.25rem; color: var(--accent); text-align: right; padding-right: 8px; }
+.timeline h3 { margin-bottom: 8px; }
+.timeline p { color: var(--muted); max-width: 640px; margin: 0; }
+@media (max-width: 640px) {
+  .timeline::before { left: 6px; }
+  .timeline li { grid-template-columns: 1fr; gap: 4px; padding-left: 32px; }
+  .timeline li::before { left: 0; }
+  .timeline .when { text-align: left; }
+}
+
+/* Anatomy */
+.anatomy { display: grid; grid-template-columns: 420px 1fr; gap: 56px; align-items: center; }
+.anatomy svg { width: 100%; height: auto; display: block; }
+.anatomy .lbl { font: 600 12px "Figtree", sans-serif; fill: var(--ink); }
+.anatomy .lbl-fa { font: 400 12px "Vazirmatn", sans-serif; fill: var(--muted); }
+.anatomy .leader { stroke: var(--ink); stroke-width: 1; fill: none; opacity: .55; }
+.parts { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+.parts li { padding-left: 18px; border-left: 3px solid var(--line); }
+.parts b { font-family: "Cormorant Garamond", serif; font-size: 1.3rem; }
+.parts .fa { color: var(--gold); margin-left: 6px; }
+.tr { display: block; font-size: .85rem; color: var(--muted); letter-spacing: .01em; }
+.tr i { font-style: normal; color: var(--accent); font-weight: 500; }
+.parts .tr { margin-top: 2px; }
+.hero h1 .tr { font-family: "Figtree", sans-serif; font-size: 1.05rem; font-weight: 400; margin-top: 8px; }
+.card .fa { margin-bottom: 0; }
+.card .tr { margin-bottom: 10px; }
+.parts span.d { display: block; color: var(--muted); font-size: .96rem; }
+@media (max-width: 900px) { .anatomy { grid-template-columns: 1fr; } .anatomy figure { max-width: 440px; margin: 0 auto; } }
+
+/* Patterns */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+.card .art { background: #efe3c8; aspect-ratio: 16 / 10; display: grid; place-items: center; border-bottom: 1px solid var(--line); }
+.card .art svg { height: 82%; width: auto; }
+.card .body { padding: 18px 20px 22px; }
+.card h3 { font-size: 1.45rem; }
+.card .fa { color: var(--gold); font-size: .95rem; display: block; margin: 2px 0 0; }
+.card p { color: var(--muted); font-size: .95rem; margin: 0; }
+.note { color: var(--muted); font-size: .95rem; margin-top: 28px; max-width: 760px; }
+
+/* Craft */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+@media (max-width: 820px) { .two { grid-template-columns: 1fr; } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px; box-shadow: var(--shadow); }
+.panel h3 { margin-bottom: 10px; }
+.panel p { color: var(--muted); font-size: .98rem; }
+.knots { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0 14px; }
+.knot { text-align: center; font-size: .85rem; color: var(--muted); }
+.knot svg { width: 100%; height: auto; background: var(--tile); border-radius: 10px; }
+.knot b { display: block; color: var(--ink); font-size: .95rem; margin-top: 6px; }
+.warp { stroke: #8a7a66; stroke-width: 6; stroke-linecap: round; }
+.yarn { fill: none; stroke: #8f2621; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+
+.dyes { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; margin-top: 18px; }
+.dye { display: flex; gap: 12px; align-items: center; }
+.sw { width: 44px; height: 44px; border-radius: 50%; flex: none; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12); }
+.dye b { display: block; font-size: .95rem; }
+.dye span { font-size: .82rem; color: var(--muted); line-height: 1.35; display: block; }
+
+/* Calculator */
+.calc { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+@media (max-width: 820px) { .calc { grid-template-columns: 1fr; } }
+.field-row { margin-bottom: 20px; }
+.field-row label { display: flex; justify-content: space-between; font-weight: 600; font-size: .92rem; margin-bottom: 6px; }
+.field-row label output { color: var(--accent); font-variant-numeric: tabular-nums; }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+.hint { font-size: .8rem; color: var(--muted); display: flex; justify-content: space-between; }
+.result { display: grid; gap: 16px; }
+.stat { border-left: 3px solid var(--gold); padding-left: 16px; }
+.stat .v { font-family: "Cormorant Garamond", serif; font-weight: 700; font-size: 2.4rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat .k { color: var(--muted); font-size: .88rem; }
+.grade { display: inline-block; margin-top: 4px; font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); }
+.density-view { margin-top: 6px; }
+.density-view svg { width: 100%; max-width: 260px; height: auto; border-radius: 8px; display: block; }
+.fine { font-size: .8rem; color: var(--muted); margin-top: 16px; }
+
+/* Talim */
+.talim { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; }
+@media (max-width: 820px) { .talim { grid-template-columns: 1fr; } }
+.chart { display: grid; grid-template-columns: repeat(16, 1fr); gap: 2px; max-width: 360px; padding: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.chart i { aspect-ratio: 1; border-radius: 1px; }
+.chart i.cur { outline: 2px solid var(--ink); outline-offset: -1px; }
+.call { margin-top: 14px; font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.35rem; min-height: 1.6em; color: var(--accent); }
+.btn { font: 600 .9rem "Figtree", sans-serif; background: var(--ink); color: var(--bg); border: 0; border-radius: 999px; padding: 10px 18px; cursor: pointer; }
+.btn:hover { opacity: .88; }
+
+/* Regions */
+.regions { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.region { background: var(--surface); padding: 22px 22px 24px; }
+.region h3 { font-size: 1.4rem; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.region h3 .fa { font-size: .95rem; color: var(--gold); }
+.region .tag { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); font-weight: 600; margin: 4px 0 8px; }
+.region p { color: var(--muted); font-size: .94rem; margin: 0; }
+
+/* Care */
+.care { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
+.care h3 { font-size: 1.3rem; margin-bottom: 6px; }
+.care p { color: var(--muted); font-size: .96rem; }
+
+footer { border-top: 1px solid var(--line); padding: 48px 0 64px; color: var(--muted); font-size: .92rem; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; align-items: center; }
+footer .band { height: 18px; margin-bottom: 40px; }
+.back { font-weight: 600; text-decoration: none; }
+</style>
+<script>
+  try { var t = localStorage.getItem("theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+</script>
+</head>
+<body>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a class="brand" href="#top">Beyond Science</a>
+    <ul>
+      <li><a class="link" href="#history">History</a></li>
+      <li><a class="link" href="#anatomy">Anatomy</a></li>
+      <li><a class="link" href="#patterns">Patterns</a></li>
+      <li><a class="link" href="#craft">Craft</a></li>
+      <li><a class="link" href="#talim">Performance</a></li>
+      <li><a class="link" href="#regions">Regions</a></li>
+    </ul>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Beyond Science · An essay in knots</div>
+      <h1>The Persian Carpet <span class="fa" lang="fa">فرش ایرانی</span><span class="tr">farsh-e irāni <i>(FARSH-eh ee-raa-NEE)</i></span></h1>
+      <p class="lede">A Persian carpet is a garden you can roll up and carry. It holds a design that can take months to knot by hand, a palette cooked from roots and rinds, and a history that runs back more than two thousand years. This page looks at the art behind it: where it came from, what its patterns mean, and why a good one lasts for generations.</p>
+    </div>
+    <figure style="margin:0">
+      <div class="hero-rug weave" id="heroRug" role="img" aria-label="Illustration of a Persian carpet with a central medallion, corner pieces, borders and fringe"></div>
+      <figcaption class="hero-cap">A lachak‑toranj (medallion and corner) design, drawn row by row the way it is woven, bottom to top.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="quote">"Every carpet is woven from the bottom up, one knot and one row at a time, so the weaver never sees the whole design until the carpet is finished."
+      <small>What the weaving process means in practice</small></p>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section id="history">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">I.</span>
+      <h2>Two and a half thousand years of weaving</h2>
+      <p>Pile carpets began as practical things: warm, portable floors for nomadic herders on the Iranian plateau. Over the centuries, royal courts turned them into one of the great decorative arts of the world.</p>
+    </div>
+    <ol class="timeline">
+      <li>
+        <div class="when">c. 400 BCE</div>
+        <div>
+          <h3>The Pazyryk carpet</h3>
+          <p>The oldest known knotted‑pile carpet was found in 1949, preserved in ice in a Scythian burial mound in the Altai Mountains of Siberia. It has a border of horsemen and grazing deer, and many scholars link its style to Achaemenid Persia. It is now in the Hermitage Museum in St Petersburg.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">6th c. CE</div>
+        <div>
+          <h3>The Spring of Khosrow</h3>
+          <p>Written sources describe a huge Sasanian carpet in the palace at Ctesiphon. It showed a garden in bloom, worked in silk, gold and jewels, so the king could enjoy spring in winter. When Arab armies took the city in the 630s, the carpet was cut up and divided as spoils. None of it survives, but its garden theme continued for centuries.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">11th–15th c.</div>
+        <div>
+          <h3>Seljuks, Mongols and Timurids</h3>
+          <p>Carpets show up in texts and in manuscript paintings from this period. Most designs were geometric: repeating stars, octagons and small medallions. Weaving spread across the plateau as a village and tribal craft.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">1501–1722</div>
+        <div>
+          <h3>The Safavid golden age</h3>
+          <p>The Safavid shahs set up court workshops, and artists who normally illuminated manuscripts started designing carpets. Designs became curved and flowing, with medallions, arabesques and scrolling vines. The famous <em>Ardabil carpet</em> (1539–40), signed by Maqsud of Kashan, is now in the V&amp;A in London. Under Shah Abbas I, Isfahan workshops wove silk carpets with gold and silver thread as diplomatic gifts for the courts of Europe.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">18th c.</div>
+        <div>
+          <h3>From court to village</h3>
+          <p>Isfahan fell in 1722 and the court workshops declined. Weaving continued in towns, villages and nomadic camps, where designs were kept alive in memory and passed from mother to daughter.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">19th c.</div>
+        <div>
+          <h3>The Qajar revival</h3>
+          <p>European demand brought a large revival. Merchants in Tabriz organised workshops for export, and foreign firms set up production around Sultanabad (Arak). Many classic Safavid designs were woven again, and new centres such as Kerman and Kashan became famous.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">2010</div>
+        <div>
+          <h3>Recognised by UNESCO</h3>
+          <p>UNESCO added the traditional carpet‑weaving skills of <em>Fars</em> and of <em>Kashan</em> to its Representative List of the Intangible Cultural Heritage of Humanity. In doing so it recognised the knowledge carried by weavers, dyers and designers, not only the finished objects.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ANATOMY -->
+<section id="anatomy">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">II.</span>
+      <h2>Reading a carpet</h2>
+      <p>Most classical Persian carpets share the same parts. Once you know them, you can read almost any rug: a central field framed by borders, like a garden inside its walls.</p>
+    </div>
+    <div class="anatomy">
+      <figure style="margin:0" id="anatomyFig" role="img" aria-label="Labelled diagram of the parts of a Persian carpet"></figure>
+      <ul class="parts">
+        <li><b>Field</b><span class="fa" lang="fa">متن</span><span class="tr">matn <i>(MATN)</i></span><span class="d">The main ground of the carpet. It can be an open colour, an all‑over repeat, or a scene.</span></li>
+        <li><b>Medallion</b><span class="fa" lang="fa">ترنج</span><span class="tr">toranj <i>(toh-RANJ)</i></span><span class="d">The central motif, often read as a pool, a sun, or the dome of heaven. Designers draw one quarter and mirror it to make the whole.</span></li>
+        <li><b>Pendants</b><span class="fa" lang="fa">سرترنج</span><span class="tr">sar-toranj <i>(SAR-toh-ranj)</i></span><span class="d">Small caps at the top and bottom of the medallion that stretch it along the carpet's length.</span></li>
+        <li><b>Corner pieces</b><span class="fa" lang="fa">لچک</span><span class="tr">lachak <i>(lah-CHAK)</i></span><span class="d">Quarter medallions in the four corners. They suggest that the design continues beyond the edges.</span></li>
+        <li><b>Borders</b><span class="fa" lang="fa">حاشیه</span><span class="tr">hāshiyeh <i>(haa-shee-YEH)</i></span><span class="d">A wide main border between narrower guard stripes. It works like a garden wall, and often has scrolling vines or palmettes.</span></li>
+        <li><b>Fringe</b><span class="fa" lang="fa">ریشه</span><span class="tr">risheh <i>(ree-SHEH)</i></span><span class="d">Not decoration. These are the ends of the warp threads, the foundation that every knot is tied onto.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PATTERNS -->
+<section id="patterns">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">III.</span>
+      <h2>A vocabulary of patterns</h2>
+      <p>Persian weavers draw on a shared set of motifs, each with its own name and associations. Here are the ones you will see most often.</p>
+    </div>
+    <div class="grid">
+
+      <article class="card">
+        <div class="art"><svg viewBox="0 0 160 110" aria-hidden="true">
+          <rect x="4" y="4" width="152" height="102" rx="3" class="c-red"/>
+          <g id="lt-corner"><path d="M4 4h38a38 34 0 0 1-38 34z" class="c-ind"/><path d="M4 4h22a22 20 0 0 1-22 20z" class="c-gold"/></g>
+          <use href="#lt-corner" transform="matrix(-1 0 0 1 160 0)"/><use href="#lt-corner" transform="matrix(1 0 0 -1 0 110)"/><use href="#lt-corner" transform="matrix(-1 0 0 -1 160 110)"/>
+          <path d="M80 18 L104 40 L112 55 L104 70 L80 92 L56 70 L48 55 L56 40Z" class="c-ind"/>
+          <path d="M80 30 L96 45 L101 55 L96 65 L80 80 L64 65 L59 55 L64 45Z" class="c-ivo"/>
+          <circle cx="80" cy="55" r="12" class="c-red"/><circle cx="80" cy="55" r="5" class="c-gold"/>
+          <path d="M80 8 L86 18 L74 18Z M80 102 L86 92 L74 92Z" class="c-ind"/>
+        </svg></div>
+        <div class="body"><h3>Lachak‑Toranj</h3><span class="fa" lang="fa">لچک ترنج</span><span class="tr">lachak-toranj <i>(lah-CHAK toh-RANJ)</i></span>
+          <p>Medallion and corners. The classic "palace" layout, popular in Tabriz, Kashan and Kerman since Safavid times. A single centre gives the carpet a calm, balanced focus.</p></div>
+      </article>
+
+      <article class="card">
+        <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true">
+          <rect width="120" height="120" class="c-ind"/>
+          <path d="M60 22 L98 60 L60 98 L22 60Z" fill="none" stroke="#c8952c" stroke-width="3"/>
+          <g class="c-grn">
+            <ellipse cx="41" cy="41" rx="16" ry="6" transform="rotate(-45 41 41)"/>
+            <ellipse cx="79" cy="41" rx="16" ry="6" transform="rotate(45 79 41)"/>
+            <ellipse cx="41" cy="79" rx="16" ry="6" transform="rotate(45 41 79)"/>
+            <ellipse cx="79" cy="79" rx="16" ry="6" transform="rotate(-45 79 79)"/>
+          </g>
+          <g class="c-red"><circle cx="60" cy="47" r="7"/><circle cx="73" cy="60" r="7"/><circle cx="60" cy="73" r="7"/><circle cx="47" cy="60" r="7"/></g>
+          <circle cx="60" cy="60" r="8" class="c-ivo"/><circle cx="60" cy="60" r="3.5" class="c-gold"/>
+          <g class="c-ivo"><circle cx="60" cy="10" r="4"/><circle cx="110" cy="60" r="4"/><circle cx="60" cy="110" r="4"/><circle cx="10" cy="60" r="4"/></g>
+        </svg></div>
+        <div class="body"><h3>Herati</h3><span class="fa" lang="fa">هراتی · ماهی</span><span class="tr">herāti · māhi <i>(heh-raa-TEE · maa-HEE)</i></span>
+          <p>A rosette inside a diamond, with four curved leaves around it. Weavers also call it <em>mahi</em> (fish), because the leaves look like fish swimming around a pond. It repeats across the whole field, and is perhaps the most widely used Persian motif.</p></div>
+      </article>
+
+      <article class="card">
+        <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true">
+          <rect width="120" height="120" class="c-red"/>
+          <path d="M58 104 C28 104 22 72 38 52 C52 34 74 34 78 12 C92 34 96 62 86 82 C80 96 70 104 58 104Z" class="c-ind"/>
+          <path d="M58 94 C38 94 34 72 45 58 C55 46 70 44 74 30 C82 46 84 64 78 78 C74 88 67 94 58 94Z" class="c-ivo"/>
+          <path d="M58 84 C46 84 44 70 51 62 C58 54 66 54 69 46 C73 56 74 66 70 74 C67 80 63 84 58 84Z" class="c-pink"/>
+          <g class="c-gold"><circle cx="59" cy="70" r="3"/><circle cx="52" cy="72" r="2"/><circle cx="64" cy="64" r="2"/></g>
+          <g class="c-ivo"><circle cx="16" cy="18" r="3"/><circle cx="104" cy="104" r="3"/><circle cx="104" cy="20" r="2.5"/><circle cx="18" cy="100" r="2.5"/></g>
+        </svg></div>
+        <div class="body"><h3>Boteh</h3><span class="fa" lang="fa">بته جقه</span><span class="tr">boteh jeqqeh <i>(boh-TEH jeg-GEH)</i></span>
+          <p>A teardrop with a curled tip. It is known in the West as paisley, a name taken from the Scottish town that copied it. It has been read as a cypress bent in the wind, a flame, or a sprouting seed. It is common in Serabend and Qashqai rugs, and also in Kerman shawls.</p></div>
+      </article>
+
+      <article class="card">
+        <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true">
+          <rect width="120" height="120" class="c-ivo"/>
+          <g class="c-red">
+            <ellipse cx="60" cy="52" rx="9" ry="36" transform="rotate(-60 60 90)"/>
+            <ellipse cx="60" cy="52" rx="9" ry="36" transform="rotate(-30 60 90)"/>
+            <ellipse cx="60" cy="52" rx="9" ry="36"/>
+            <ellipse cx="60" cy="52" rx="9" ry="36" transform="rotate(30 60 90)"/>
+            <ellipse cx="60" cy="52" rx="9" ry="36" transform="rotate(60 60 90)"/>
+          </g>
+          <g class="c-ind">
+            <ellipse cx="60" cy="64" rx="7" ry="24" transform="rotate(-40 60 90)"/>
+            <ellipse cx="60" cy="64" rx="7" ry="24"/>
+            <ellipse cx="60" cy="64" rx="7" ry="24" transform="rotate(40 60 90)"/>
+          </g>
+          <path d="M34 92 Q60 70 86 92 Q60 102 34 92Z" class="c-grn"/>
+          <circle cx="60" cy="84" r="7" class="c-gold"/>
+          <path d="M60 98 V114" stroke="#56703f" stroke-width="3"/>
+        </svg></div>
+        <div class="body"><h3>Shah Abbasi</h3><span class="fa" lang="fa">شاه عباسی</span><span class="tr">shāh abbāsi <i>(shaah ab-baa-SEE)</i></span>
+          <p>Large fan‑shaped palmettes, named after Shah Abbas I. They are usually linked by scrolling vines (<span lang="fa-Latn">eslimi</span>) that twist across the field. It is the typical motif of Isfahan, Kashan and Nain.</p></div>
+      </article>
+
+      <article class="card">
+        <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true">
+          <defs><pattern id="mk" width="40" height="40" patternUnits="userSpaceOnUse">
+            <rect width="40" height="40" fill="#1d3557"/>
+            <path d="M0 0 L40 40 M40 0 L0 40" stroke="#56703f" stroke-width="2"/>
+            <g fill="#efe3c8"><circle cx="20" cy="14" r="4"/><circle cx="26" cy="20" r="4"/><circle cx="20" cy="26" r="4"/><circle cx="14" cy="20" r="4"/></g>
+            <circle cx="20" cy="20" r="3" fill="#c8952c"/>
+            <g fill="#c56b5c"><circle cx="0" cy="0" r="6"/><circle cx="40" cy="0" r="6"/><circle cx="0" cy="40" r="6"/><circle cx="40" cy="40" r="6"/></g>
+            <g fill="#c8952c"><circle cx="0" cy="0" r="2.5"/><circle cx="40" cy="0" r="2.5"/><circle cx="0" cy="40" r="2.5"/><circle cx="40" cy="40" r="2.5"/></g>
+          </pattern></defs>
+          <rect width="120" height="120" fill="url(#mk)"/>
+        </svg></div>
+        <div class="body"><h3>Mina Khani</h3><span class="fa" lang="fa">مینا خانی</span><span class="tr">minā khāni <i>(mee-NAA khaa-NEE)</i></span>
+          <p>A repeating lattice of daisy‑like flowers connected by thin stems. It spreads across the field with no clear beginning or end, and is a favourite of the Veramin weavers and of Kurdish weavers.</p></div>
+      </article>
+
+      <article class="card">
+        <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true">
+          <rect width="120" height="120" class="c-grn"/>
+          <rect x="8" y="8" width="104" height="104" fill="none" stroke="#c8952c" stroke-width="2"/>
+          <rect x="54" y="8" width="12" height="104" class="c-sky"/><rect x="8" y="54" width="104" height="12" class="c-sky"/>
+          <rect x="48" y="48" width="24" height="24" class="c-ind"/><circle cx="60" cy="60" r="5" class="c-ivo"/>
+          <g class="c-dark">
+            <path d="M31 22 l7 14 h-14z M31 76 l7 14 h-14z M89 22 l7 14 h-14z M89 76 l7 14 h-14z"/>
+          </g>
+          <g class="c-pink"><circle cx="20" cy="44" r="3"/><circle cx="42" cy="44" r="3"/><circle cx="78" cy="44" r="3"/><circle cx="100" cy="44" r="3"/><circle cx="20" cy="98" r="3"/><circle cx="42" cy="98" r="3"/><circle cx="78" cy="98" r="3"/><circle cx="100" cy="98" r="3"/></g>
+        </svg></div>
+        <div class="body"><h3>Garden</h3><span class="fa" lang="fa">باغی · چهارباغ</span><span class="tr">bāghi · chahār-bāgh <i>(baa-GHEE · cha-HAAR-baagh)</i></span>
+          <p>The Persian <em>chahar bagh</em>, a garden split into four by water channels, seen from above. It is the oldest idea in the tradition: paradise (from the Old Persian <em>pairidaeza</em>, a walled garden) laid on the floor. Bakhtiari "garden panel" rugs are a later version of it.</p></div>
+      </article>
+
+      <article class="card">
+        <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true">
+          <rect width="120" height="120" class="c-ivo"/>
+          <path d="M58 112 L56 70 Q54 56 60 44 Q66 56 64 70 L62 112Z" class="c-dark"/>
+          <g fill="none" stroke="#2b1b17" stroke-width="3" stroke-linecap="round">
+            <path d="M58 88 Q40 80 28 66"/><path d="M62 88 Q80 80 92 66"/>
+            <path d="M57 70 Q44 58 38 42"/><path d="M63 70 Q76 58 82 42"/>
+          </g>
+          <g class="c-grn"><circle cx="26" cy="62" r="8"/><circle cx="94" cy="62" r="8"/><circle cx="36" cy="38" r="8"/><circle cx="84" cy="38" r="8"/><circle cx="60" cy="30" r="10"/></g>
+          <g class="c-red"><circle cx="26" cy="62" r="3"/><circle cx="94" cy="62" r="3"/><circle cx="36" cy="38" r="3"/><circle cx="84" cy="38" r="3"/><circle cx="60" cy="30" r="4"/></g>
+          <g class="c-gold"><circle cx="44" cy="100" r="3"/><circle cx="76" cy="100" r="3"/><circle cx="48" cy="20" r="2.5"/><circle cx="72" cy="20" r="2.5"/></g>
+        </svg></div>
+        <div class="body"><h3>Tree of Life</h3><span class="fa" lang="fa">درخت زندگی</span><span class="tr">derakht-e zendegi <i>(deh-RAKHT-eh zen-deh-GEE)</i></span>
+          <p>A single tree rising from the base of the carpet with birds or blossoms in its branches, symbolising growth and the link between earth and sky. Cypresses (for eternity) and blossoming fruit trees (for renewal) often stand next to it.</p></div>
+      </article>
+
+      <article class="card">
+        <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true">
+          <rect width="120" height="120" class="c-ind"/>
+          <path d="M26 114 V58 Q26 26 60 12 Q94 26 94 58 V114Z" class="c-red"/>
+          <path d="M34 114 V60 Q34 34 60 22 Q86 34 86 60 V114Z" fill="none" stroke="#c8952c" stroke-width="2"/>
+          <path d="M60 22 V44" stroke="#c8952c" stroke-width="2"/>
+          <path d="M52 44 h16 l-3 14 h-10z" class="c-gold"/><circle cx="60" cy="62" r="3" class="c-ivo"/>
+          <g class="c-ivo"><circle cx="8" cy="10" r="3"/><circle cx="112" cy="10" r="3"/></g>
+          <path d="M42 100 h36" stroke="#efe3c8" stroke-width="2" stroke-dasharray="4 4"/>
+        </svg></div>
+        <div class="body"><h3>Mihrab</h3><span class="fa" lang="fa">محرابی</span><span class="tr">mehrābi <i>(meh-raa-BEE)</i></span>
+          <p>A pointed arch based on the prayer niche of a mosque, sometimes with a lamp hanging from its peak. Prayer rugs have one arch and a clear direction: the weaver means them to be used facing one way.</p></div>
+      </article>
+
+    </div>
+    <p class="note">Others you will meet: <b>Harshang</b> (crab‑like palmettes), <b>Joshaghan</b> (lozenges filled with flowers), <b>Bid Majnun</b> (the weeping willow), <b>Shekargah</b> (hunting scenes), <b>Golfarang</b> (European‑style bouquets from the Qajar period) and <b>Kheshti</b> (panel or brick layouts).</p>
+  </div>
+</section>
+
+<!-- CRAFT -->
+<section id="craft">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">IV.</span>
+      <h2>The craft, and why it holds up</h2>
+      <p>A hand‑knotted carpet is a dense block of short wool tufts, each one tied around the foundation and held in place by weft threads beaten down tight. That structure is what lets it take a century of footsteps.</p>
+    </div>
+
+    <div class="two">
+      <div class="panel">
+        <h3>Two knots</h3>
+        <p>Every pile knot wraps around two warp threads. How the yarn wraps decides the knot.</p>
+        <div class="knots">
+          <div class="knot">
+            <svg viewBox="0 0 160 120" aria-label="Asymmetrical Persian knot diagram">
+              <line class="warp" x1="55" y1="10" x2="55" y2="110"/><line class="warp" x1="105" y1="10" x2="105" y2="110"/>
+              <path class="yarn" d="M80 104 L80 62 Q80 46 64 46 Q46 46 46 60 Q46 72 60 72 L112 72 Q118 72 118 64 L118 20"/>
+            </svg>
+            <b>Asymmetrical · Persian</b>
+            Wraps one warp and passes under the other. One tuft comes up between each pair, which gives finer, more curved drawing.
+          </div>
+          <div class="knot">
+            <svg viewBox="0 0 160 120" aria-label="Symmetrical Turkish knot diagram">
+              <line class="warp" x1="55" y1="10" x2="55" y2="110"/><line class="warp" x1="105" y1="10" x2="105" y2="110"/>
+              <path class="yarn" d="M70 104 L70 70 Q70 58 58 58 Q42 58 42 46 Q42 36 55 36 L105 36 Q118 36 118 46 Q118 58 102 58 Q90 58 90 70 L90 104"/>
+            </svg>
+            <b>Symmetrical · Turkish</b>
+            Goes over both warps, and both ends come up together in the centre. It is sturdy and suits bold designs. It is used in Tabriz, Heriz and Bidjar.
+          </div>
+        </div>
+        <p style="margin:0">The Persian knot is also called <em>Senneh</em>, and the Turkish knot <em>Ghiordes</em>. Both are used inside Iran. The knot shows the local tradition, not the country of origin.</p>
+      </div>
+
+      <div class="panel">
+        <h3>Wool, silk and natural dye</h3>
+        <p>Highland sheep give wool rich in lanolin, which pushes away dirt and springs back under weight. The finest is <em>kurk</em>, from the neck and shoulders of young lambs. Silk gives a sheen and allows very fine detail, and city workshops use it for the pile or for highlights. Village rugs usually have a wool foundation, and city rugs a cotton one.</p>
+        <div class="dyes">
+          <div class="dye"><i class="sw" style="background:#9b2a22"></i><div><b>Madder</b><span>Root of <em>runas</em>. Reds from brick to rose</span></div></div>
+          <div class="dye"><i class="sw" style="background:#1d3557"></i><div><b>Indigo</b><span>Blues. Dyed over yellow, it gives green</span></div></div>
+          <div class="dye"><i class="sw" style="background:#b01e45"></i><div><b>Cochineal</b><span>Insect dye for crimsons, used in Kashan and Kerman</span></div></div>
+          <div class="dye"><i class="sw" style="background:#d8b13b"></i><div><b>Isparak</b><span>Larkspur flowers. A lasting yellow</span></div></div>
+          <div class="dye"><i class="sw" style="background:#b58a3c"></i><div><b>Pomegranate</b><span>Rind. Golds and olive tones</span></div></div>
+          <div class="dye"><i class="sw" style="background:#5a3a26"></i><div><b>Walnut</b><span>Husks. Browns and near‑blacks</span></div></div>
+        </div>
+        <p style="margin:18px 0 0">Natural dye batches never match exactly. The gentle bands of shifting colour this creates are called <em>abrash</em>, and collectors value them as a sign of the hand.</p>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:28px">
+      <h3>How long does a carpet take?</h3>
+      <p>Knot density is the main measure of fineness. Move the sliders to see how size and density add up to months of work.</p>
+      <div class="calc">
+        <div>
+          <div class="field-row">
+            <label for="w">Width <output id="wo"></output></label>
+            <input type="range" id="w" min="0.6" max="4" step="0.1" value="2">
+          </div>
+          <div class="field-row">
+            <label for="l">Length <output id="lo"></output></label>
+            <input type="range" id="l" min="0.9" max="6" step="0.1" value="3">
+          </div>
+          <div class="field-row">
+            <label for="k">Knots per square inch <output id="ko"></output></label>
+            <input type="range" id="k" min="30" max="900" step="10" value="250">
+            <div class="hint"><span>Tribal</span><span>City</span><span>Very fine silk</span></div>
+          </div>
+          <div class="field-row">
+            <label for="d">Knots tied per weaver per day <output id="do"></output></label>
+            <input type="range" id="d" min="4000" max="14000" step="500" value="9000">
+          </div>
+          <div class="field-row" style="margin-bottom:0">
+            <label for="n">Weavers at the loom <output id="no"></output></label>
+            <input type="range" id="n" min="1" max="4" step="1" value="2">
+          </div>
+        </div>
+        <div class="result">
+          <div class="stat"><div class="v" id="rTotal"></div><div class="k">knots in total</div></div>
+          <div class="stat"><div class="v" id="rTime"></div><div class="k" id="rTimeK">of knotting (6 days a week)</div></div>
+          <div class="stat"><div class="v" id="rPer"></div><div class="k">knots per square metre</div><span class="grade" id="rGrade"></span></div>
+          <div class="density-view">
+            <div class="k" style="font-size:.85rem;color:var(--muted);margin-bottom:6px">One square inch at this density:</div>
+            <svg id="densitySvg" viewBox="0 0 100 100" aria-label="Grid showing knot density"></svg>
+          </div>
+        </div>
+      </div>
+      <p class="fine">These are rough figures to show scale. Real speeds depend on the weaver, the design and the materials, and they leave out spinning, dyeing, trimming and washing, which add weeks more.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TALIM / PERFORMANCE -->
+<section id="talim">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">V.</span>
+      <h2>Weaving as performance</h2>
+      <p>A carpet is also something performed. In some workshops the design was sung rather than drawn.</p>
+    </div>
+    <div class="talim">
+      <div>
+        <div class="chart" id="chart" aria-label="Knotting chart"></div>
+        <div class="call" id="call" aria-live="polite">&nbsp;</div>
+        <button class="btn" id="playTalim">Call out a row</button>
+      </div>
+      <div>
+        <p>In city workshops, a designer first paints the pattern onto graph paper called the <em>naqsheh</em>, where each square is one knot. In places such as Kerman, that chart was then turned into a <strong>talim</strong>, a coded list of colours and counts. A reader chanted it aloud to the weavers at the loom, who sang back each instruction as they tied it. The chant set the rhythm of the work and kept several weavers in step across a wide carpet.</p>
+        <p>Nomadic weavers, such as Qashqai women in Fars, often weave with no chart at all. They work from memory and improvise, and a small change of colour or an added animal records a birth, a season or a mood. Two carpets from the same camp are never the same.</p>
+        <p>After the loom, the work goes on: shearing the pile to an even height, washing, stretching and repairing. The last performance belongs to the owner. The pile wears into a soft sheen over the years, and a carpet that has been walked on for decades often looks better than a new one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONS -->
+<section id="regions">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">VI.</span>
+      <h2>Where they are woven</h2>
+      <p>Persian carpets are usually named after the town or tribe that made them. Each centre has its own palette, knot and style of drawing.</p>
+    </div>
+    <div class="regions">
+      <div class="region"><h3>Tabriz <span class="fa" lang="fa">تبریز</span></h3><div class="tag">Northwest · city</div><p>A great trading centre that weaves almost every design at every quality. It often uses the symmetrical knot and a hooked tool called the <em>qollab</em>.</p></div>
+      <div class="region"><h3>Heriz <span class="fa" lang="fa">هریس</span></h3><div class="tag">Northwest · village</div><p>Bold, angular medallions in brick red and navy. The thick, heavy build makes these among the toughest rugs made.</p></div>
+      <div class="region"><h3>Kashan <span class="fa" lang="fa">کاشان</span></h3><div class="tag">Central · city</div><p>Home of Maqsud, weaver of the Ardabil carpet. Known for kurk wool, deep reds and navy, and for fine silk pieces. Listed by UNESCO.</p></div>
+      <div class="region"><h3>Isfahan <span class="fa" lang="fa">اصفهان</span></h3><div class="tag">Central · city</div><p>The Safavid capital. Very fine knotting, often on silk foundations, with detailed Shah Abbasi designs and elegant medallions.</p></div>
+      <div class="region"><h3>Nain <span class="fa" lang="fa">نائین</span></h3><div class="tag">Central · city</div><p>Ivory and soft blue grounds with silk outlines. A 20th‑century centre that came out of the town's fine wool textile tradition.</p></div>
+      <div class="region"><h3>Qom <span class="fa" lang="fa">قم</span></h3><div class="tag">Central · city</div><p>Famous for all‑silk carpets that shine like enamel. Designs range widely, from gardens to boteh to hunting scenes.</p></div>
+      <div class="region"><h3>Kerman <span class="fa" lang="fa">کرمان</span></h3><div class="tag">Southeast · city</div><p>Soft, painterly colours and naturalistic flowers, historically woven from a chanted talim. Kerman also has a long shawl tradition.</p></div>
+      <div class="region"><h3>Bidjar <span class="fa" lang="fa">بیجار</span></h3><div class="tag">Kurdistan · town</div><p>Called the "iron rug of Persia". The wefts are beaten so hard that the carpet is stiff and very hard‑wearing.</p></div>
+      <div class="region"><h3>Qashqai <span class="fa" lang="fa">قشقایی</span></h3><div class="tag">Fars · nomadic</div><p>Bright, spirited rugs woven on horizontal looms that can be carried from camp to camp, full of animals and small medallions. Listed by UNESCO.</p></div>
+      <div class="region"><h3>Bakhtiari <span class="fa" lang="fa">بختیاری</span></h3><div class="tag">Zagros · village</div><p>Best known for the <em>kheshti</em> garden‑panel design, a grid of compartments each holding a tree, flower or vase.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CARE -->
+<section id="care">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">VII.</span>
+      <h2>Living with a Persian carpet</h2>
+      <p>A carpet is made to be used. A little care lets it outlive the person who bought it.</p>
+    </div>
+    <div class="care">
+      <div><h3>Turn it</h3><p>Rotate it every year or two so that sunlight and footsteps fall evenly. Strong direct sun will slowly fade even natural dyes.</p></div>
+      <div><h3>Shake, don't scrub</h3><p>Vacuum without a beater bar, and go with the pile. For spills, blot with cool water. Never rub, and never use harsh detergents on wool.</p></div>
+      <div><h3>Guard the ends</h3><p>The fringe and side cords wear first. Repair them early and the knots behind them stay safe.</p></div>
+      <div><h3>Wash by hand</h3><p>Every few years, a professional wash in plain water and a long dry in the shade brings the colour and lanolin sheen back.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:block">
+    <svg class="band" id="footBand" width="100%" viewBox="0 0 1072 18" preserveAspectRatio="none" aria-hidden="true"></svg>
+  </div>
+  <div class="wrap">
+    <div>Written by <strong>Faezeh Maghsoodifar</strong>, out of love for a craft from home.</div>
+    <a class="back" href="https://www.faezehmaghsoodifar.com/">← Back to faezehmaghsoodifar.com</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var NS = "http://www.w3.org/2000/svg";
+  var C = { red: "#8f2621", ind: "#1d3557", ivo: "#efe3c8", gold: "#c8952c", dark: "#2b1b17", grn: "#56703f", pink: "#c56b5c", sky: "#5f86a8" };
+
+  function el(tag, attrs, parent) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+
+  // Lobed (scalloped) closed shape, used for medallions
+  function lobed(cx, cy, rx, ry, lobes, depth) {
+    var d = "", n = 240;
+    for (var i = 0; i <= n; i++) {
+      var t = (i / n) * Math.PI * 2;
+      var k = 1 + depth * Math.cos(lobes * t);
+      var x = cx + rx * k * Math.sin(t), y = cy - ry * k * Math.cos(t);
+      d += (i ? "L" : "M") + x.toFixed(1) + " " + y.toFixed(1);
+    }
+    return d + "Z";
+  }
+
+  function rosette(g, x, y, r, petal, centre) {
+    for (var i = 0; i < 6; i++) {
+      var a = i * Math.PI / 3;
+      el("circle", { cx: x + Math.cos(a) * r * .55, cy: y + Math.sin(a) * r * .55, r: r * .42, fill: petal }, g);
+    }
+    el("circle", { cx: x, cy: y, r: r * .38, fill: centre }, g);
+  }
+
+  function buildCarpet(W, H, opts) {
+    opts = opts || {};
+    var svg = el("svg", { viewBox: "0 0 " + W + " " + H });
+    var defs = el("defs", {}, svg);
+    var uid = "c" + Math.random().toString(36).slice(2, 7);
+
+    // field pattern: small herati lattice
+    var p = el("pattern", { id: uid + "h", width: 28, height: 28, patternUnits: "userSpaceOnUse" }, defs);
+    el("rect", { width: 28, height: 28, fill: C.red }, p);
+    el("path", { d: "M14 3 L25 14 L14 25 L3 14Z", fill: "none", stroke: "#a8453a", "stroke-width": 1.4 }, p);
+    el("circle", { cx: 14, cy: 14, r: 2.4, fill: C.gold }, p);
+    [[0, 0], [28, 0], [0, 28], [28, 28]].forEach(function (q) { el("circle", { cx: q[0], cy: q[1], r: 2.6, fill: C.ivo, opacity: .8 }, p); });
+
+    var fringe = 14, b = 10;
+    var ox = b, oy = fringe, ow = W - 2 * b, oh = H - 2 * fringe;
+
+    // fringe
+    var fr = el("g", { stroke: "#e6dac2", "stroke-width": 1.4 }, svg);
+    for (var x = ox + 2; x < ox + ow; x += 4) {
+      el("line", { x1: x, y1: 2, x2: x + (x % 3 - 1), y2: oy + 1 }, fr);
+      el("line", { x1: x, y1: H - 2, x2: x + (x % 3 - 1), y2: H - oy - 1 }, fr);
+    }
+
+    // body + borders
+    el("rect", { x: ox, y: oy, width: ow, height: oh, fill: C.dark }, svg);
+    el("rect", { x: ox + 4, y: oy + 4, width: ow - 8, height: oh - 8, fill: C.gold }, svg);
+    el("rect", { x: ox + 7, y: oy + 7, width: ow - 14, height: oh - 14, fill: C.ind }, svg);
+    var bw = 28; // main border width
+    var ix = ox + 7 + bw, iy = oy + 7 + bw, iw = ow - 14 - 2 * bw, ih = oh - 14 - 2 * bw;
+
+    // border vine + rosettes
+    var bg = el("g", {}, svg);
+    var mx = ox + 7 + bw / 2, my = oy + 7 + bw / 2, mw = ow - 14 - bw, mh = oh - 14 - bw;
+    el("rect", { x: mx, y: my, width: mw, height: mh, fill: "none", stroke: C.grn, "stroke-width": 1.6, "stroke-dasharray": "7 5" }, bg);
+    var step = 24;
+    function along(x1, y1, x2, y2) {
+      var len = Math.hypot(x2 - x1, y2 - y1), n = Math.max(1, Math.round(len / step));
+      for (var i = 0; i < n; i++) {
+        var t = i / n, px = x1 + (x2 - x1) * t, py = y1 + (y2 - y1) * t;
+        rosette(bg, px, py, 7.5, i % 2 ? C.pink : C.red, C.gold);
+      }
+    }
+    along(mx, my, mx + mw, my); along(mx + mw, my, mx + mw, my + mh);
+    along(mx + mw, my + mh, mx, my + mh); along(mx, my + mh, mx, my);
+
+    // inner guard + field
+    el("rect", { x: ix - 4, y: iy - 4, width: iw + 8, height: ih + 8, fill: C.ivo }, svg);
+    el("rect", { x: ix - 2, y: iy - 2, width: iw + 4, height: ih + 4, fill: C.dark }, svg);
+    el("rect", { x: ix, y: iy, width: iw, height: ih, fill: "url(#" + uid + "h)" }, svg);
+
+    // corners (lachak), clipped to field
+    var cp = el("clipPath", { id: uid + "f" }, defs);
+    el("rect", { x: ix, y: iy, width: iw, height: ih }, cp);
+    var corners = el("g", { "clip-path": "url(#" + uid + "f)" }, svg);
+    [[ix, iy], [ix + iw, iy], [ix, iy + ih], [ix + iw, iy + ih]].forEach(function (c) {
+      var rx = iw * .3, ry = ih * .2;
+      el("path", { d: lobed(c[0], c[1], rx, ry, 20, .06), fill: C.ind }, corners);
+      el("path", { d: lobed(c[0], c[1], rx * .72, ry * .72, 16, .07), fill: C.ivo }, corners);
+      el("path", { d: lobed(c[0], c[1], rx * .45, ry * .45, 12, .09), fill: C.pink }, corners);
+    });
+
+    // medallion + pendants
+    var cx = W / 2, cy = H / 2, R = iw * .3, RY = ih * .22;
+    var med = el("g", {}, svg);
+    [-1, 1].forEach(function (s) {
+      el("rect", { x: cx - 1.5, y: s < 0 ? cy - RY * 1.55 : cy + RY, width: 3, height: RY * .55, fill: C.ind }, med);
+      el("path", { d: lobed(cx, cy + s * RY * 1.55, R * .28, RY * .16, 8, .15), fill: C.ind }, med);
+      el("circle", { cx: cx, cy: cy + s * RY * 1.55, r: R * .08, fill: C.gold }, med);
+    });
+    el("path", { d: lobed(cx, cy, R, RY, 16, .08), fill: C.ind }, med);
+    el("path", { d: lobed(cx, cy, R * .78, RY * .78, 16, .08), fill: "none", stroke: C.gold, "stroke-width": 1.5 }, med);
+    el("path", { d: lobed(cx, cy, R * .66, RY * .66, 12, .1), fill: C.ivo }, med);
+    el("path", { d: lobed(cx, cy, R * .46, RY * .46, 8, .14), fill: C.red }, med);
+    for (var i = 0; i < 8; i++) {
+      var a = i * Math.PI / 4;
+      el("ellipse", { cx: cx + Math.sin(a) * R * .56, cy: cy - Math.cos(a) * RY * .56, rx: 3.2, ry: 3.2, fill: C.grn }, med);
+    }
+    el("path", { d: lobed(cx, cy, R * .24, RY * .24, 8, .15), fill: C.gold }, med);
+    rosette(med, cx, cy, R * .12, C.ind, C.ivo);
+
+    return { svg: svg, box: { ix: ix, iy: iy, iw: iw, ih: ih, ox: ox, oy: oy, ow: ow, oh: oh, cx: cx, cy: cy, R: R, RY: RY, mx: mx, my: my } };
+  }
+
+  // Hero
+  document.getElementById("heroRug").appendChild(buildCarpet(380, 560).svg);
+
+  // Anatomy: carpet with labels on the right
+  (function () {
+    var built = buildCarpet(260, 400), s = built.svg, bx = built.box;
+    var wrap = el("svg", { viewBox: "0 0 420 400" });
+    var g = el("g", {}, wrap);
+    while (s.firstChild) g.appendChild(s.firstChild);
+    var labels = [
+      ["Fringe", "ree-SHEH · ریشه", [60, 6], 12],
+      ["Border", "haa-shee-YEH · حاشیه", [bx.ox + bx.ow - 16, 110], 76],
+      ["Corner · lachak", "lah-CHAK · لچک", [bx.ix + bx.iw - 18, bx.iy + 22], 150],
+      ["Pendant", "SAR-toh-ranj · سرترنج", [bx.cx + 4, bx.cy - bx.RY * 1.55], 222],
+      ["Medallion · toranj", "toh-RANJ · ترنج", [bx.cx + bx.R * .9, bx.cy + 6], 288],
+      ["Field · matn", "MATN · متن", [bx.ix + bx.iw - 34, bx.cy + bx.RY * 1.25], 354]
+    ];
+    labels.forEach(function (L) {
+      var p = L[2], ly = L[3], lx = 284;
+      el("circle", { cx: p[0], cy: p[1], r: 3, fill: "#fff", stroke: "#2b1b17", "stroke-width": 1.2 }, wrap);
+      el("path", { class: "leader", d: "M" + p[0] + " " + p[1] + " L" + (lx - 8) + " " + ly }, wrap);
+      var t = el("text", { x: lx, y: ly, class: "lbl" }, wrap); t.textContent = L[0];
+      var f = el("text", { x: lx, y: ly + 16, class: "lbl-fa" }, wrap); f.textContent = L[1];
+    });
+    document.getElementById("anatomyFig").appendChild(wrap);
+  })();
+
+  // Footer border band
+  (function () {
+    var s = document.getElementById("footBand");
+    el("rect", { width: 1072, height: 18, fill: C.ind }, s);
+    for (var x = 0; x < 1072; x += 24) {
+      el("path", { d: "M" + x + " 9 L" + (x + 12) + " 2 L" + (x + 24) + " 9 L" + (x + 12) + " 16Z", fill: C.red }, s);
+      el("circle", { cx: x + 12, cy: 9, r: 2.4, fill: C.gold }, s);
+    }
+  })();
+
+  // Calculator
+  (function () {
+    var ids = ["w", "l", "k", "d", "n"], $ = function (id) { return document.getElementById(id); };
+    var fmt = new Intl.NumberFormat("en-US");
+    function grade(k) {
+      if (k < 80) return "Tribal / village";
+      if (k < 160) return "Good workshop";
+      if (k < 300) return "Fine city";
+      if (k < 500) return "Very fine";
+      return "Masterpiece silk";
+    }
+    function update() {
+      var w = +$("w").value, l = +$("l").value, k = +$("k").value, d = +$("d").value, n = +$("n").value;
+      $("wo").textContent = w.toFixed(1) + " m";
+      $("lo").textContent = l.toFixed(1) + " m";
+      $("ko").textContent = k;
+      $("do").textContent = fmt.format(d);
+      $("no").textContent = n;
+      var perM2 = k * 1550.0031;
+      var total = w * l * perM2;
+      var days = total / (d * n);
+      var months = days / 26;
+      $("rTotal").textContent = total >= 1e6 ? (total / 1e6).toFixed(1) + " million" : fmt.format(Math.round(total));
+      $("rTime").textContent = months < 1 ? Math.ceil(days / 6) + " weeks" : months < 24 ? months.toFixed(1) + " months" : (months / 12).toFixed(1) + " years";
+      $("rPer").textContent = fmt.format(Math.round(perM2 / 1000) * 1000);
+      $("rGrade").textContent = grade(k);
+      // density grid
+      var svg = $("densitySvg"); svg.innerHTML = "";
+      var side = Math.sqrt(k), cell = 100 / side;
+      el("rect", { width: 100, height: 100, fill: C.ivo }, svg);
+      var cols = [C.red, C.red, C.ind, C.red, C.gold, C.red, C.pink];
+      for (var yy = 0; yy < side; yy++) for (var xx = 0; xx < side; xx++) {
+        var c = cols[(xx * 7 + yy * 3 + ((xx ^ yy) & 3)) % cols.length];
+        el("rect", { x: (xx * cell + cell * .08).toFixed(2), y: (yy * cell + cell * .08).toFixed(2), width: (cell * .84).toFixed(2), height: (cell * .84).toFixed(2), rx: cell * .3, fill: c }, svg);
+      }
+    }
+    ids.forEach(function (id) { $(id).addEventListener("input", update); });
+    update();
+  })();
+
+  // Talim chart + chant
+  (function () {
+    var chart = document.getElementById("chart"), call = document.getElementById("call");
+    var N = 16, pal = { r: C.red, b: C.ind, i: C.ivo, g: C.gold };
+    var palName = { r: "red", b: "blue", i: "ivory", g: "gold" };
+    // small medallion motif in a 16x16 chart
+    var rows = [];
+    for (var y = 0; y < N; y++) {
+      var row = "";
+      for (var x = 0; x < N; x++) {
+        var dx = Math.abs(x - 7.5), dy = Math.abs(y - 7.5), m = dx + dy;
+        var ch = "r";
+        if (m < 3) ch = "g"; else if (m < 5) ch = "i"; else if (m < 7) ch = "b";
+        if ((x === 0 || y === 0 || x === N - 1 || y === N - 1)) ch = "b";
+        if (dx > 5.5 && dy > 5.5 && !(x === 0 || y === 0 || x === N - 1 || y === N - 1)) ch = "i";
+        row += ch;
+      }
+      rows.push(row);
+    }
+    var cells = [];
+    rows.forEach(function (row) {
+      for (var j = 0; j < row.length; j++) {
+        var i = document.createElement("i");
+        i.style.background = pal[row[j]];
+        chart.appendChild(i); cells.push(i);
+      }
+    });
+    var cur = N - 1, timer = null;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function runs(row) {
+      var out = [], c = row[0], n = 1;
+      for (var j = 1; j <= row.length; j++) {
+        if (row[j] === c) n++; else { out.push([n, c]); c = row[j]; n = 1; }
+      }
+      return out;
+    }
+    document.getElementById("playTalim").addEventListener("click", function () {
+      if (timer) { clearInterval(timer); timer = null; }
+      cells.forEach(function (c) { c.classList.remove("cur"); });
+      var y = cur, parts = runs(rows[y]), k = 0, pos = 0;
+      var row = document.getElementById("playTalim");
+      row.textContent = "Row " + (N - y) + " of " + N + " · next row";
+      function step() {
+        if (k >= parts.length) { clearInterval(timer); timer = null; cur = (cur - 1 + N) % N; return; }
+        var p = parts[k];
+        for (var q = 0; q < N; q++) cells[y * N + q].classList.remove("cur");
+        for (var q2 = pos; q2 < pos + p[0]; q2++) cells[y * N + q2].classList.add("cur");
+        call.textContent = "“" + p[0] + " " + palName[p[1]] + "…”";
+        pos += p[0]; k++;
+      }
+      if (reduce) {
+        call.textContent = parts.map(function (p) { return p[0] + " " + palName[p[1]]; }).join(", ");
+        cur = (cur - 1 + N) % N; return;
+      }
+      step(); timer = setInterval(step, 850);
+    });
+  })();
+
+  // Theme toggle
+  document.getElementById("themeBtn").addEventListener("click", function () {
+    var root = document.documentElement;
+    var dark = root.getAttribute("data-theme") ? root.getAttribute("data-theme") === "dark"
+      : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var next = dark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>
