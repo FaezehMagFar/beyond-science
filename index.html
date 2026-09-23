@@ -187,10 +187,17 @@ section { padding: 88px 0; border-top: 1px solid var(--line); }
 .panel p { color: var(--muted); font-size: .98rem; }
 .knots { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0 14px; }
 .knot { text-align: center; font-size: .85rem; color: var(--muted); }
-.knot svg { width: 100%; height: auto; background: var(--tile); border-radius: 10px; }
+.knot svg { width: 100%; height: auto; background: #efe3c8; border-radius: 10px; }
+.knot svg .k-lbl { fill: #6b5446; }
 .knot b { display: block; color: var(--ink); font-size: .95rem; margin-top: 6px; }
-.warp { stroke: #8a7a66; stroke-width: 6; stroke-linecap: round; }
-.yarn { fill: none; stroke: #8f2621; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+.warp rect { fill: #fffaf0; stroke: #8a7a66; stroke-width: 1.5; }
+.yarn { fill: none; stroke: #b3342b; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+.yarn.back { stroke: #d27b6f; stroke-dasharray: 3 3; stroke-linecap: butt; }
+.k-lbl { font: 600 9px "Figtree", sans-serif; fill: var(--muted); text-anchor: middle; }
+.k-key { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: center; font-size: .8rem; color: var(--muted); margin: -4px 0 14px; }
+.k-key span { display: inline-flex; align-items: center; gap: 6px; }
+.k-sw { width: 22px; height: 6px; border-radius: 3px; background: #b3342b; display: inline-block; }
+.k-sw.back { background: repeating-linear-gradient(90deg, #d27b6f 0 3px, transparent 3px 6px); }
 
 .dyes { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; margin-top: 18px; }
 .dye { display: flex; gap: 12px; align-items: center; }
@@ -554,22 +561,31 @@ footer .band { height: 18px; margin-bottom: 40px; }
         <p>Every pile knot wraps around two warp threads. How the yarn wraps decides the knot.</p>
         <div class="knots">
           <div class="knot">
-            <svg viewBox="0 0 160 120" aria-label="Asymmetrical Persian knot diagram">
-              <line class="warp" x1="55" y1="10" x2="55" y2="110"/><line class="warp" x1="105" y1="10" x2="105" y2="110"/>
-              <path class="yarn" d="M80 104 L80 62 Q80 46 64 46 Q46 46 46 60 Q46 72 60 72 L112 72 Q118 72 118 64 L118 20"/>
+            <svg viewBox="0 0 160 150" role="img" aria-label="Asymmetrical Persian knot: the yarn wraps fully around the right warp and passes behind the left warp; one tuft comes out between the warps and the other outside the left warp">
+              <path class="yarn back" d="M116 44 Q125 44 123 54 Q121 62 104 62 L48 62 Q38 62 38 72"/>
+              <g class="warp"><rect x="53" y="14" width="10" height="126" rx="3"/><rect x="97" y="14" width="10" height="126" rx="3"/></g>
+              <text class="k-lbl" x="58" y="10">warp</text><text class="k-lbl" x="102" y="10">warp</text>
+              <path class="yarn" d="M80 136 L80 54 Q80 44 90 44 L116 44"/>
+              <path class="yarn" d="M38 70 L37 136"/>
             </svg>
             <b>Asymmetrical · Persian</b>
-            Wraps one warp and passes under the other. One tuft comes up between each pair, which gives finer, more curved drawing.
+            Wraps fully around one warp and passes behind the other, so the two tufts come out on either side of a warp. Every gap between warps holds a tuft, which allows finer, more curved drawing.
           </div>
           <div class="knot">
-            <svg viewBox="0 0 160 120" aria-label="Symmetrical Turkish knot diagram">
-              <line class="warp" x1="55" y1="10" x2="55" y2="110"/><line class="warp" x1="105" y1="10" x2="105" y2="110"/>
-              <path class="yarn" d="M70 104 L70 70 Q70 58 58 58 Q42 58 42 46 Q42 36 55 36 L105 36 Q118 36 118 46 Q118 58 102 58 Q90 58 90 70 L90 104"/>
+            <svg viewBox="0 0 160 150" role="img" aria-label="Symmetrical Turkish knot: the yarn crosses in front of both warps and each end wraps behind its own warp, so both tufts come out together between the warps">
+              <path class="yarn back" d="M44 44 Q35 44 37 54 Q39 62 56 62 L73 62"/>
+              <path class="yarn back" d="M116 44 Q125 44 123 54 Q121 62 104 62 L87 62"/>
+              <g class="warp"><rect x="53" y="14" width="10" height="126" rx="3"/><rect x="97" y="14" width="10" height="126" rx="3"/></g>
+              <text class="k-lbl" x="58" y="10">warp</text><text class="k-lbl" x="102" y="10">warp</text>
+              <path class="yarn" d="M44 44 L116 44"/>
+              <path class="yarn" d="M72 62 Q76 62 76 72 L74 136"/>
+              <path class="yarn" d="M88 62 Q84 62 84 72 L86 136"/>
             </svg>
             <b>Symmetrical · Turkish</b>
-            Goes over both warps, and both ends come up together in the centre. It is sturdy and suits bold designs. It is used in Tabriz, Heriz and Bidjar.
+            Crosses in front of both warps, and each end wraps behind its own warp, so both tufts come out together in the middle. It is sturdy and suits bold designs. It is used in Tabriz, Heriz and Bidjar.
           </div>
         </div>
+        <div class="k-key"><span><i class="k-sw"></i>yarn in front of the warp</span><span><i class="k-sw back"></i>yarn behind the warp</span></div>
         <p style="margin:0">The Persian knot is also called <em>Senneh</em>, and the Turkish knot <em>Ghiordes</em>. Both are used inside Iran. The knot shows the local tradition, not the country of origin.</p>
       </div>
 
