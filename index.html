@@ -160,6 +160,10 @@ section { padding: 88px 0; border-top: 1px solid var(--line); }
 .parts span.d { display: block; color: var(--muted); font-size: .96rem; }
 @media (max-width: 900px) { .anatomy { grid-template-columns: 1fr; } .anatomy figure { max-width: 440px; margin: 0 auto; } }
 
+.anatomy-img { margin: 0 auto; max-width: 760px; background: #fffaf1; border: 1px solid var(--line); border-radius: 16px; padding: clamp(8px, 3vw, 28px); box-shadow: var(--shadow); }
+.anatomy-img img { display: block; width: 100%; height: auto; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
 /* Patterns */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
 @media (max-width: 360px) { .grid { grid-template-columns: 1fr; } }
@@ -364,9 +368,9 @@ footer .band { height: 18px; margin-bottom: 40px; }
       <h2>Reading a carpet</h2>
       <p>Most classical Persian carpets share the same parts. Once you know them, you can read almost any rug: a central field framed by borders, like a garden inside its walls.</p>
     </div>
+    <figure class="anatomy-img"><img src="images/carpet-anatomy.webp" width="1122" height="1402" loading="lazy" alt="Labelled diagram of a red medallion carpet showing its parts: fringe, field, corner pieces, medallion, borders and pendants. The same labels and descriptions are listed below for screen readers."></figure>
     <div class="anatomy">
-      <figure style="margin:0" id="anatomyFig" role="img" aria-label="Labelled diagram of the parts of a Persian carpet"></figure>
-      <ul class="parts">
+      <ul class="parts sr-only">
         <li><b>Field</b><span class="fa" lang="fa">متن</span><span class="tr">matn <i>(MATN)</i></span><span class="d">The main ground of the carpet. It can be an open colour, an all‑over repeat, or a scene.</span></li>
         <li><b>Medallion</b><span class="fa" lang="fa">ترنج</span><span class="tr">toranj <i>(toh-RANJ)</i></span><span class="d">The central motif, often read as a pool, a sun, or the dome of heaven. Designers draw one quarter and mirror it to make the whole.</span></li>
         <li><b>Pendants</b><span class="fa" lang="fa">سرترنج</span><span class="tr">sar-toranj <i>(SAR-toh-ranj)</i></span><span class="d">Small caps at the top and bottom of the medallion that stretch it along the carpet's length.</span></li>
@@ -834,30 +838,6 @@ footer .band { height: 18px; margin-bottom: 40px; }
     return { svg: svg, box: { ix: ix, iy: iy, iw: iw, ih: ih, ox: ox, oy: oy, ow: ow, oh: oh, cx: cx, cy: cy, R: R, RY: RY, mx: mx, my: my } };
   }
 
-
-  // Anatomy: carpet with labels on the right
-  (function () {
-    var built = buildCarpet(260, 400), s = built.svg, bx = built.box;
-    var wrap = el("svg", { viewBox: "0 0 420 400" });
-    var g = el("g", {}, wrap);
-    while (s.firstChild) g.appendChild(s.firstChild);
-    var labels = [
-      ["Fringe", "ree-SHEH · ریشه", [60, 6], 12],
-      ["Border", "haa-shee-YEH · حاشیه", [bx.ox + bx.ow - 16, 110], 76],
-      ["Corner · lachak", "lah-CHAK · لچک", [bx.ix + bx.iw - 18, bx.iy + 22], 150],
-      ["Pendant", "SAR-toh-ranj · سرترنج", [bx.cx + 4, bx.cy - bx.RY * 1.55], 222],
-      ["Medallion · toranj", "toh-RANJ · ترنج", [bx.cx + bx.R * .9, bx.cy + 6], 288],
-      ["Field · matn", "MATN · متن", [bx.ix + bx.iw - 34, bx.cy + bx.RY * 1.25], 354]
-    ];
-    labels.forEach(function (L) {
-      var p = L[2], ly = L[3], lx = 284;
-      el("circle", { cx: p[0], cy: p[1], r: 3, fill: "#fff", stroke: "#2b1b17", "stroke-width": 1.2 }, wrap);
-      el("path", { class: "leader", d: "M" + p[0] + " " + p[1] + " L" + (lx - 8) + " " + ly }, wrap);
-      var t = el("text", { x: lx, y: ly, class: "lbl" }, wrap); t.textContent = L[0];
-      var f = el("text", { x: lx, y: ly + 16, class: "lbl-fa" }, wrap); f.textContent = L[1];
-    });
-    document.getElementById("anatomyFig").appendChild(wrap);
-  })();
 
   // Footer border band
   (function () {
