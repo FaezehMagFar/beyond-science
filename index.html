@@ -165,6 +165,13 @@ section { padding: 88px 0; border-top: 1px solid var(--line); }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
 .card .art { background: #efe3c8; aspect-ratio: 16 / 10; display: grid; place-items: center; border-bottom: 1px solid var(--line); }
 .card .art svg { height: 82%; width: auto; }
+.card .art.photo { position: relative; aspect-ratio: 4 / 3; display: block; background: #2b1b17; }
+.card .art.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.card .key { position: absolute; right: 10px; bottom: 10px; width: 64px; height: 64px; padding: 4px; background: #efe3c8; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, .35); display: grid; place-items: center; }
+.card .key svg { width: 100%; height: 100%; }
+.card .body { display: flex; flex-direction: column; flex: 1; }
+.card p.credit { margin-top: auto; padding-top: 14px; font-size: .75rem; line-height: 1.45; opacity: .85; }
+.card p.credit a { color: inherit; }
 .card .body { padding: 18px 20px 22px; }
 .card h3 { font-size: 1.45rem; }
 .card .fa { color: var(--gold); font-size: .95rem; display: block; margin: 2px 0 0; }
@@ -369,12 +376,12 @@ footer .band { height: 18px; margin-bottom: 40px; }
     <div class="sec-head">
       <span class="num">III.</span>
       <h2>A vocabulary of patterns</h2>
-      <p>Persian weavers draw on a shared set of motifs, each with its own name and associations. Here are the ones you will see most often.</p>
+      <p>Persian weavers draw on a shared set of motifs, each with its own name and associations. Here are the ones you will see most often, each shown in a real carpet, with a small sketch of the motif in the corner.</p>
     </div>
     <div class="grid">
 
       <article class="card">
-        <div class="art"><svg viewBox="0 0 160 110" aria-hidden="true">
+        <div class="art photo"><img src="images/lachak-toranj-ardabil.jpg" alt="The Ardabil carpet, a Safavid medallion carpet with corner pieces" loading="lazy" style="object-position:50% 50%"><div class="key" title="Motif sketch"><svg viewBox="0 0 160 110" aria-hidden="true">
           <rect x="4" y="4" width="152" height="102" rx="3" class="c-red"/>
           <g id="lt-corner"><path d="M4 4h38a38 34 0 0 1-38 34z" class="c-ind"/><path d="M4 4h22a22 20 0 0 1-22 20z" class="c-gold"/></g>
           <use href="#lt-corner" transform="matrix(-1 0 0 1 160 0)"/><use href="#lt-corner" transform="matrix(1 0 0 -1 0 110)"/><use href="#lt-corner" transform="matrix(-1 0 0 -1 160 110)"/>
@@ -382,13 +389,14 @@ footer .band { height: 18px; margin-bottom: 40px; }
           <path d="M80 30 L96 45 L101 55 L96 65 L80 80 L64 65 L59 55 L64 45Z" class="c-ivo"/>
           <circle cx="80" cy="55" r="12" class="c-red"/><circle cx="80" cy="55" r="5" class="c-gold"/>
           <path d="M80 8 L86 18 L74 18Z M80 102 L86 92 L74 92Z" class="c-ind"/>
-        </svg></div>
+        </svg></div></div>
         <div class="body"><h3>Lachak‑Toranj</h3><span class="fa" lang="fa">لچک ترنج</span><span class="tr">lachak-toranj <i>(lah-CHAK toh-RANJ)</i></span>
-          <p>Medallion and corners. The classic "palace" layout, popular in Tabriz, Kashan and Kerman since Safavid times. A single centre gives the carpet a calm, balanced focus.</p></div>
+          <p>Medallion and corners. The classic "palace" layout, popular in Tabriz, Kashan and Kerman since Safavid times. A single centre gives the carpet a calm, balanced focus.</p>
+          <p class="credit"><a href="https://commons.wikimedia.org/wiki/File:Ardabil_Carpet.jpg">The Ardabil carpet</a>, 1539–40, V&amp;A London. Public domain.</p></div>
       </article>
 
       <article class="card">
-        <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true">
+        <div class="art photo"><img src="images/herati-bidjar.jpg" alt="Bidjar rug with an all-over herati pattern around a hexagonal medallion" loading="lazy" style="object-position:50% 22%"><div class="key" title="Motif sketch"><svg viewBox="0 0 120 120" aria-hidden="true">
           <rect width="120" height="120" class="c-ind"/>
           <path d="M60 22 L98 60 L60 98 L22 60Z" fill="none" stroke="#c8952c" stroke-width="3"/>
           <g class="c-grn">
@@ -400,26 +408,28 @@ footer .band { height: 18px; margin-bottom: 40px; }
           <g class="c-red"><circle cx="60" cy="47" r="7"/><circle cx="73" cy="60" r="7"/><circle cx="60" cy="73" r="7"/><circle cx="47" cy="60" r="7"/></g>
           <circle cx="60" cy="60" r="8" class="c-ivo"/><circle cx="60" cy="60" r="3.5" class="c-gold"/>
           <g class="c-ivo"><circle cx="60" cy="10" r="4"/><circle cx="110" cy="60" r="4"/><circle cx="60" cy="110" r="4"/><circle cx="10" cy="60" r="4"/></g>
-        </svg></div>
+        </svg></div></div>
         <div class="body"><h3>Herati</h3><span class="fa" lang="fa">هراتی · ماهی</span><span class="tr">herāti · māhi <i>(heh-raa-TEE · maa-HEE)</i></span>
-          <p>A rosette inside a diamond, with four curved leaves around it. Weavers also call it <em>mahi</em> (fish), because the leaves look like fish swimming around a pond. It repeats across the whole field, and is perhaps the most widely used Persian motif.</p></div>
+          <p>A rosette inside a diamond, with four curved leaves around it. Weavers also call it <em>mahi</em> (fish), because the leaves look like fish swimming around a pond. It repeats across the whole field, and is perhaps the most widely used Persian motif.</p>
+          <p class="credit"><a href="https://commons.wikimedia.org/wiki/File:Fine_Bidjar_rug.jpg">Bidjar rug</a>, photo by BerndtF, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.</p></div>
       </article>
 
       <article class="card">
-        <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true">
+        <div class="art photo"><img src="images/boteh-rijksmuseum.jpg" alt="Rug with staggered rows of small boteh motifs" loading="lazy" style="object-position:50% 50%"><div class="key" title="Motif sketch"><svg viewBox="0 0 120 120" aria-hidden="true">
           <rect width="120" height="120" class="c-red"/>
           <path d="M58 104 C28 104 22 72 38 52 C52 34 74 34 78 12 C92 34 96 62 86 82 C80 96 70 104 58 104Z" class="c-ind"/>
           <path d="M58 94 C38 94 34 72 45 58 C55 46 70 44 74 30 C82 46 84 64 78 78 C74 88 67 94 58 94Z" class="c-ivo"/>
           <path d="M58 84 C46 84 44 70 51 62 C58 54 66 54 69 46 C73 56 74 66 70 74 C67 80 63 84 58 84Z" class="c-pink"/>
           <g class="c-gold"><circle cx="59" cy="70" r="3"/><circle cx="52" cy="72" r="2"/><circle cx="64" cy="64" r="2"/></g>
           <g class="c-ivo"><circle cx="16" cy="18" r="3"/><circle cx="104" cy="104" r="3"/><circle cx="104" cy="20" r="2.5"/><circle cx="18" cy="100" r="2.5"/></g>
-        </svg></div>
+        </svg></div></div>
         <div class="body"><h3>Boteh</h3><span class="fa" lang="fa">بته جقه</span><span class="tr">boteh jeqqeh <i>(boh-TEH jeg-GEH)</i></span>
-          <p>A teardrop with a curled tip. It is known in the West as paisley, a name taken from the Scottish town that copied it. It has been read as a cypress bent in the wind, a flame, or a sprouting seed. It is common in Serabend and Qashqai rugs, and also in Kerman shawls.</p></div>
+          <p>A teardrop with a curled tip. It is known in the West as paisley, a name taken from the Scottish town that copied it. It has been read as a cypress bent in the wind, a flame, or a sprouting seed. It is common in Serabend and Qashqai rugs, and also in Kerman shawls.</p>
+          <p class="credit"><a href="https://commons.wikimedia.org/wiki/File:Bloemenkleed_met_rijen_verspringende_mir-i-bota_en_driehoekige_haken_in_de_rand,_BK-16186.jpg">Rug with rows of boteh</a>, Rijksmuseum. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.</p></div>
       </article>
 
       <article class="card">
-        <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true">
+        <div class="art photo"><img src="images/shah-abbasi-polonaise.jpg" alt="Safavid silk Polonaise carpet with large palmettes and scrolling vines" loading="lazy" style="object-position:50% 50%"><div class="key" title="Motif sketch"><svg viewBox="0 0 120 120" aria-hidden="true">
           <rect width="120" height="120" class="c-ivo"/>
           <g class="c-red">
             <ellipse cx="60" cy="52" rx="9" ry="36" transform="rotate(-60 60 90)"/>
@@ -436,13 +446,14 @@ footer .band { height: 18px; margin-bottom: 40px; }
           <path d="M34 92 Q60 70 86 92 Q60 102 34 92Z" class="c-grn"/>
           <circle cx="60" cy="84" r="7" class="c-gold"/>
           <path d="M60 98 V114" stroke="#56703f" stroke-width="3"/>
-        </svg></div>
+        </svg></div></div>
         <div class="body"><h3>Shah Abbasi</h3><span class="fa" lang="fa">شاه عباسی</span><span class="tr">shāh abbāsi <i>(shaah ab-baa-SEE)</i></span>
-          <p>Large fan‑shaped palmettes, named after Shah Abbas I. They are usually linked by scrolling vines (<span lang="fa-Latn">eslimi</span>) that twist across the field. It is the typical motif of Isfahan, Kashan and Nain.</p></div>
+          <p>Large fan‑shaped palmettes, named after Shah Abbas I. They are usually linked by scrolling vines (<span lang="fa-Latn">eslimi</span>) that twist across the field. It is the typical motif of Isfahan, Kashan and Nain.</p>
+          <p class="credit"><a href="https://commons.wikimedia.org/wiki/File:Polonaise_Carpet_MET_wb-17.120.143.jpeg">"Polonaise" silk carpet</a>, Isfahan, 17th c., The Met. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.</p></div>
       </article>
 
       <article class="card">
-        <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true">
+        <div class="art photo"><img src="images/mina-khani-varamin.jpg" alt="Varamin carpet with a lattice of daisy-like flowers on a dark blue ground" loading="lazy" style="object-position:50% 50%"><div class="key" title="Motif sketch"><svg viewBox="0 0 120 120" aria-hidden="true">
           <defs><pattern id="mk" width="40" height="40" patternUnits="userSpaceOnUse">
             <rect width="40" height="40" fill="#1d3557"/>
             <path d="M0 0 L40 40 M40 0 L0 40" stroke="#56703f" stroke-width="2"/>
@@ -452,13 +463,14 @@ footer .band { height: 18px; margin-bottom: 40px; }
             <g fill="#c8952c"><circle cx="0" cy="0" r="2.5"/><circle cx="40" cy="0" r="2.5"/><circle cx="0" cy="40" r="2.5"/><circle cx="40" cy="40" r="2.5"/></g>
           </pattern></defs>
           <rect width="120" height="120" fill="url(#mk)"/>
-        </svg></div>
+        </svg></div></div>
         <div class="body"><h3>Mina Khani</h3><span class="fa" lang="fa">مینا خانی</span><span class="tr">minā khāni <i>(mee-NAA khaa-NEE)</i></span>
-          <p>A repeating lattice of daisy‑like flowers connected by thin stems. It spreads across the field with no clear beginning or end, and is a favourite of the Veramin weavers and of Kurdish weavers.</p></div>
+          <p>A repeating lattice of daisy‑like flowers connected by thin stems. It spreads across the field with no clear beginning or end, and is a favourite of the Veramin weavers and of Kurdish weavers.</p>
+          <p class="credit"><a href="https://commons.wikimedia.org/wiki/File:Varamin_Carpet.jpg">Varamin carpet</a>, photo by Pouyakhani, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.</p></div>
       </article>
 
       <article class="card">
-        <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true">
+        <div class="art photo"><img src="images/garden-wagner.jpg" alt="The Wagner garden carpet, showing water channels, trees and a central pool" loading="lazy" style="object-position:50% 45%"><div class="key" title="Motif sketch"><svg viewBox="0 0 120 120" aria-hidden="true">
           <rect width="120" height="120" class="c-grn"/>
           <rect x="8" y="8" width="104" height="104" fill="none" stroke="#c8952c" stroke-width="2"/>
           <rect x="54" y="8" width="12" height="104" class="c-sky"/><rect x="8" y="54" width="104" height="12" class="c-sky"/>
@@ -467,13 +479,14 @@ footer .band { height: 18px; margin-bottom: 40px; }
             <path d="M31 22 l7 14 h-14z M31 76 l7 14 h-14z M89 22 l7 14 h-14z M89 76 l7 14 h-14z"/>
           </g>
           <g class="c-pink"><circle cx="20" cy="44" r="3"/><circle cx="42" cy="44" r="3"/><circle cx="78" cy="44" r="3"/><circle cx="100" cy="44" r="3"/><circle cx="20" cy="98" r="3"/><circle cx="42" cy="98" r="3"/><circle cx="78" cy="98" r="3"/><circle cx="100" cy="98" r="3"/></g>
-        </svg></div>
+        </svg></div></div>
         <div class="body"><h3>Garden</h3><span class="fa" lang="fa">باغی · چهارباغ</span><span class="tr">bāghi · chahār-bāgh <i>(baa-GHEE · cha-HAAR-baagh)</i></span>
-          <p>The Persian <em>chahar bagh</em>, a garden split into four by water channels, seen from above. It is the oldest idea in the tradition: paradise (from the Old Persian <em>pairidaeza</em>, a walled garden) laid on the floor. Bakhtiari "garden panel" rugs are a later version of it.</p></div>
+          <p>The Persian <em>chahar bagh</em>, a garden split into four by water channels, seen from above. It is the oldest idea in the tradition: paradise (from the Old Persian <em>pairidaeza</em>, a walled garden) laid on the floor. Bakhtiari "garden panel" rugs are a later version of it.</p>
+          <p class="credit"><a href="https://commons.wikimedia.org/wiki/File:Wagner_Garden_Carpet,_Burrell_Gollection.jpg">The Wagner garden carpet</a>, Kerman, 17th c., Burrell Collection. Public domain.</p></div>
       </article>
 
       <article class="card">
-        <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true">
+        <div class="art photo"><img src="images/tree-of-life-qashqai.jpg" alt="Qashqai rug from Shiraz with a flowering tree rising through the field" loading="lazy" style="object-position:50% 45%"><div class="key" title="Motif sketch"><svg viewBox="0 0 120 120" aria-hidden="true">
           <rect width="120" height="120" class="c-ivo"/>
           <path d="M58 112 L56 70 Q54 56 60 44 Q66 56 64 70 L62 112Z" class="c-dark"/>
           <g fill="none" stroke="#2b1b17" stroke-width="3" stroke-linecap="round">
@@ -483,13 +496,14 @@ footer .band { height: 18px; margin-bottom: 40px; }
           <g class="c-grn"><circle cx="26" cy="62" r="8"/><circle cx="94" cy="62" r="8"/><circle cx="36" cy="38" r="8"/><circle cx="84" cy="38" r="8"/><circle cx="60" cy="30" r="10"/></g>
           <g class="c-red"><circle cx="26" cy="62" r="3"/><circle cx="94" cy="62" r="3"/><circle cx="36" cy="38" r="3"/><circle cx="84" cy="38" r="3"/><circle cx="60" cy="30" r="4"/></g>
           <g class="c-gold"><circle cx="44" cy="100" r="3"/><circle cx="76" cy="100" r="3"/><circle cx="48" cy="20" r="2.5"/><circle cx="72" cy="20" r="2.5"/></g>
-        </svg></div>
+        </svg></div></div>
         <div class="body"><h3>Tree of Life</h3><span class="fa" lang="fa">درخت زندگی</span><span class="tr">derakht-e zendegi <i>(deh-RAKHT-eh zen-deh-GEE)</i></span>
-          <p>A single tree rising from the base of the carpet with birds or blossoms in its branches, symbolising growth and the link between earth and sky. Cypresses (for eternity) and blossoming fruit trees (for renewal) often stand next to it.</p></div>
+          <p>A single tree rising from the base of the carpet with birds or blossoms in its branches, symbolising growth and the link between earth and sky. Cypresses (for eternity) and blossoming fruit trees (for renewal) often stand next to it.</p>
+          <p class="credit"><a href="https://commons.wikimedia.org/wiki/File:Ghashghai_Tree_of_Life_carpet_from_Shiraz,_Iran,_wool.JPG">Qashqai tree‑of‑life rug</a>, Shiraz, photo by Hiart, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.</p></div>
       </article>
 
       <article class="card">
-        <div class="art"><svg viewBox="0 0 120 120" aria-hidden="true">
+        <div class="art photo"><img src="images/mihrab-prayer-rug-met.jpg" alt="Sixteenth-century Persian prayer rug with an arched niche and inscriptions" loading="lazy" style="object-position:50% 35%"><div class="key" title="Motif sketch"><svg viewBox="0 0 120 120" aria-hidden="true">
           <rect width="120" height="120" class="c-ind"/>
           <path d="M26 114 V58 Q26 26 60 12 Q94 26 94 58 V114Z" class="c-red"/>
           <path d="M34 114 V60 Q34 34 60 22 Q86 34 86 60 V114Z" fill="none" stroke="#c8952c" stroke-width="2"/>
@@ -497,9 +511,10 @@ footer .band { height: 18px; margin-bottom: 40px; }
           <path d="M52 44 h16 l-3 14 h-10z" class="c-gold"/><circle cx="60" cy="62" r="3" class="c-ivo"/>
           <g class="c-ivo"><circle cx="8" cy="10" r="3"/><circle cx="112" cy="10" r="3"/></g>
           <path d="M42 100 h36" stroke="#efe3c8" stroke-width="2" stroke-dasharray="4 4"/>
-        </svg></div>
+        </svg></div></div>
         <div class="body"><h3>Mihrab</h3><span class="fa" lang="fa">محرابی</span><span class="tr">mehrābi <i>(meh-raa-BEE)</i></span>
-          <p>A pointed arch based on the prayer niche of a mosque, sometimes with a lamp hanging from its peak. Prayer rugs have one arch and a clear direction: the weaver means them to be used facing one way.</p></div>
+          <p>A pointed arch based on the prayer niche of a mosque, sometimes with a lamp hanging from its peak. Prayer rugs have one arch and a clear direction: the weaver means them to be used facing one way.</p>
+          <p class="credit"><a href="https://commons.wikimedia.org/wiki/File:Prayer_Rug_-_Iran_-_16th_century_-_MET_-_Inventory_number_17.120.124.jpg">Prayer rug</a>, Iran, 16th c., The Met. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.</p></div>
       </article>
 
     </div>
