@@ -172,6 +172,12 @@ section { padding: 88px 0; border-top: 1px solid var(--line); }
 .card .body { display: flex; flex-direction: column; flex: 1; }
 .card p.credit { margin-top: auto; padding-top: 14px; font-size: .75rem; line-height: 1.45; opacity: .85; }
 .card p.credit a { color: inherit; }
+.card.mine { grid-column: 1 / -1; display: grid; grid-template-columns: 1.4fr 1fr; }
+.card.mine .art.photo { aspect-ratio: 1280 / 793; border-bottom: 0; border-right: 1px solid var(--line); }
+.card.mine .body { justify-content: center; padding: 28px 32px; }
+.card.mine h3 { font-size: 2rem; }
+.badge { position: absolute; top: 12px; left: 12px; z-index: 1; background: #8f2621; color: #efe3c8; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; }
+@media (max-width: 760px) { .card.mine { grid-template-columns: 1fr; } .card.mine .art.photo { border-right: 0; border-bottom: 1px solid var(--line); } .card.mine .body { padding: 18px 20px 22px; } }
 .card .body { padding: 18px 20px 22px; }
 .card h3 { font-size: 1.45rem; }
 .card .fa { color: var(--gold); font-size: .95rem; display: block; margin: 2px 0 0; }
@@ -515,6 +521,22 @@ footer .band { height: 18px; margin-bottom: 40px; }
         <div class="body"><h3>Mihrab</h3><span class="fa" lang="fa">محرابی</span><span class="tr">mehrābi <i>(meh-raa-BEE)</i></span>
           <p>A pointed arch based on the prayer niche of a mosque, sometimes with a lamp hanging from its peak. Prayer rugs have one arch and a clear direction: the weaver means them to be used facing one way.</p>
           <p class="credit"><a href="https://commons.wikimedia.org/wiki/File:Prayer_Rug_-_Iran_-_16th_century_-_MET_-_Inventory_number_17.120.124.jpg">Prayer rug</a>, Iran, 16th c., The Met. <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.</p></div>
+      </article>
+
+    
+      <article class="card mine">
+        <div class="art photo"><span class="badge">From my collection</span><img src="images/gol-o-bolbol-afshar.webp" alt="Faezeh's Afshar carpet: an ivory field of roses, vases and nightingales inside a rose-coloured floral border" loading="lazy" style="object-position:50% 50%"><div class="key" title="Motif sketch"><svg viewBox="0 0 120 120" aria-hidden="true">
+          <rect width="120" height="120" class="c-ivo"/>
+          <path d="M40 104 Q44 80 38 62" stroke="#56703f" stroke-width="3" fill="none"/>
+          <g class="c-grn"><ellipse cx="30" cy="84" rx="9" ry="4" transform="rotate(-30 30 84)"/><ellipse cx="50" cy="78" rx="9" ry="4" transform="rotate(25 50 78)"/></g>
+          <circle cx="38" cy="50" r="16" class="c-red"/><circle cx="38" cy="50" r="11" class="c-pink"/><circle cx="38" cy="50" r="6" class="c-red"/><circle cx="36" cy="48" r="2.5" class="c-pink"/>
+          <path d="M66 58 Q76 40 94 42 Q104 34 110 38 Q104 42 102 48 Q100 64 82 68 L70 80 L72 66 Q64 64 66 58Z" class="c-dark"/>
+          <path d="M84 50 Q92 48 98 54" stroke="#c8952c" stroke-width="2" fill="none"/>
+          <circle cx="102" cy="42" r="1.8" class="c-ivo"/><path d="M110 38 l6 -1 -5 4z" class="c-gold"/>
+        </svg></div></div>
+        <div class="body"><h3>Gol‑o‑Bolbol</h3><span class="fa" lang="fa">گل و بلبل</span><span class="tr">gol‑o‑bolbol <i>(GOL‑oh bol‑BOL)</i></span>
+          <p>"The rose and the nightingale". In Persian poetry, from Hafez to Saadi, the nightingale sings all night to a rose it can never have. It is the lover, and the rose is the beloved. Weavers fill the field with roses, vases of flowers and small birds on the branches. The motif was loved in Qajar painting and lacquer, and later in carpets.</p>
+          <p class="credit">My own Afshar carpet, with a gol‑o‑bolbol design on an ivory field.</p></div>
       </article>
 
     </div>
